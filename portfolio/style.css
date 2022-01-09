@@ -43,42 +43,41 @@ a,
 }
 body {
   background-color: #000000;
+  color: #FFFFFF;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  line-height: 40px;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* --- HEADER --------------------- */
-/* header .container{
-  position: absolute;
-  max-width: 1440px;
-  margin: 0 auto;
-  border: .01px solid greenyellow;
-} */
 .container {
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 20px;
   }
-
-                header .container {
-                  background-color: #000000;
-                }
-  
-.container__header-wrapper {
+.container__header-background {
   display: flex;
-  color: #FFFFFF;
   height: 90px;
+  background: url('./assets/img/bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center 0;
 }
-  
-.logo {
+.container__header-logo {
   margin: auto 0;
+  padding-top: 10px;
 }
-.header-right-wrapper, nav ul, .switch-lng {
+.header__right-pannel, 
+.header__nav-item, 
+.header__switch-lng {
   display: flex;
   margin: auto 0;
 }
-.header-right-wrapper {
+.header__right-pannel {
   margin-left: auto;
   font-family: 'Inter', sans-serif;
-  color: #ffffff;
   font-size: 20px;
   line-height: 50px;
   font-weight: 400;
@@ -86,21 +85,111 @@ body {
   width: fit-content;
 }
 
-.link-nav {
+.header__nav-link {
   margin-right: 30px;
 }
-.switch-lng div { 
+.header__switch-lng div { 
   font-weight: 700;
   margin-right: 10px;
 }
-.switch-lng div:last-of-type {
+.header__switch-lng div:last-of-type {
   margin-right: 0;
 }
-/* --- HERO ----------------------------- */
 
-.hero {
-  min-height: 820px;
+.golden {
+  color: #BDAE82;
 }
-.skills-background {
-  background-color: #131747;
+
+/* --- HERO ----------------------------- */
+.hero {
+  height: 820px;
+  padding-top: 200px;
+  background-image: url('./assets/img/bg.jpg');
+  background-position: center -90px;
+  background-repeat: no-repeat;
+}
+.hero__item{
+  height: 330px;
+  width: 500px;
+  margin-left: 60px;
+  padding-right: 20px;
+}
+h1 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 60px;
+  padding-bottom: 50px;
+}
+.hero__item button {
+  margin-top: 25px;
+  width: 220px;
+  height: 55px;
+  background-color: #BDAE82;
+  font-family: inherit;
+  font-size:  inherit;
+}
+
+/* --- h2 HEADINGS ----------------------------- */
+.h2__title {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  color: #BDAE82;
+  font-size: 40px;
+  line-height: 80px;
+  background-color: #000000;
+  padding: 20px 20px 0 20px;
+  margin: 10px auto;
+  width: fit-content;
+
+}
+.h2__line {
+  background-image: linear-gradient(
+      to top, 
+      #000 39px, 
+      #bdae82 39px, 
+      #bdae82 41px, 
+      #000 41px
+    );
+    margin: 80px auto 60px auto;
+    width: 50%;
+ }
+
+/* --- SKILLS ----------------------------- */
+.skills-items {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 3%;
+}
+.skill-item {
+  background-position: center top;
+  background-size: 62px 50px;
+  background-repeat: no-repeat;
+  flex: 17%;
+  padding: 0 18px;
+}
+.skill-item:nth-child(1) {
+  background-image: url('./assets/svg/camera\ 1.svg');
+}
+.skill-item:nth-child(2) {
+  background-image: url('./assets/svg/video\ 1.svg');
+}
+.skill-item:nth-child(3) {
+  background-image: url('./assets/svg/image\ 1.svg');
+}
+.skill-item:nth-child(4) {
+  background-image: url('./assets/svg/mic\ 1.svg');
+}
+.skill-item p {
+  margin-top: 100px;
+  text-align: center;
+  font-weight: 700;
+  line-height: 40px;
+}
+.skill-item p:nth-child(2) {
+  margin-top: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 36px;
 }
