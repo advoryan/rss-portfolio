@@ -192,4 +192,38 @@ h1 {
   font-weight: 400;
   font-size: 18px;
   line-height: 36px;
+  margin-bottom: 10px;
+}
+
+/* ---------------- */
+.portfolio-btns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.portfolio-btns button {
+  border: #BDAE82 1px solid;
+  color: #BDAE82;
+  background-color: inherit;
+  font-family: inherit;
+  font-size:  inherit;
+  width: 220px;
+  height: 55px;
+}
+.portfolio-btns button:nth-child(4){
+  background-color:#BDAE82;
+  color: #000000;
+}
+
+.portfolio-items {
+  padding-top: 60px;
+  display: flex;
+  justify-content:space-between;
+  flex-wrap: wrap;
+  gap: 5px;
+  row-gap: 5px;
+}
+.portfolio-items > * {
+  margin-bottom: 20px;
 }
