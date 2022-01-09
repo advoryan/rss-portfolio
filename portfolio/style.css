@@ -4,7 +4,6 @@
 	margin: 0;
 	border: 0;
 }
-
 *,
 *:before,
 *:after{
@@ -12,7 +11,6 @@
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
 *,
 *:before,
 *:after{
@@ -20,13 +18,11 @@
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
 ul,
 ol,
 li{
 	list-style: none;
 }
-
 a, 
 :focus,
 :hover,
@@ -38,16 +34,35 @@ a,
 :visited {
   color: inherit;
 }
-/* ----------------------- */
+*,
+*:before,
+*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+  background-color: #000000;
+}
 
+/* --- HEADER --------------------- */
+/* header .container{
+  position: absolute;
+  max-width: 1440px;
+  margin: 0 auto;
+  border: .01px solid greenyellow;
+} */
 .container {
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 20px;
-    background-color: #000000;
   }
+
+                header .container {
+                  background-color: #000000;
+                }
   
-.header-top-wrapper {
+.container__header-wrapper {
   display: flex;
   color: #FFFFFF;
   height: 90px;
@@ -72,55 +87,20 @@ a,
 }
 
 .link-nav {
-  margin-right: 31px;
-}
-.switch-lng > *{ 
-  font-weight: 700;
-  margin-right: 5px;
-}
-
-
-
-/* 
-.header-right-wrapper{
-  display: flex;
   margin-right: 30px;
-  margin-left: auto;
-  font-family: 'Inter', sans-serif;
-  color: #ffffff;
-  font-size: 20px;
-  line-height: 50px;
-  font-weight: 400;
-  font-style: normal;
-  width: fit-content;
 }
-
-nav, .switch-lng {
-  font-family: 'Inter', sans-serif;
-  color: #ffffff;
-  font-size: 20px;
-  line-height: 50px;
-  font-weight: 400;
-  font-style: normal;
-  width: fit-content;
-  border: 1px rgb(47, 0, 255) solid;
-}
-
-nav ul, .switch-lng {
-  display: flex;
-  padding: 15px 15px 15px 0;
-}
-
-
-.link-nav {
-  margin-left: 30px;
-}
-
-.switch-lng {
+.switch-lng div { 
   font-weight: 700;
-} 
-*/
+  margin-right: 10px;
+}
+.switch-lng div:last-of-type {
+  margin-right: 0;
+}
+/* --- HERO ----------------------------- */
 
-/* .switch-lng > * {
-  margin-right: 5px;
-} */
+.hero {
+  min-height: 820px;
+}
+.skills-background {
+  background-color: #131747;
+}
