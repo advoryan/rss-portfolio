@@ -223,7 +223,64 @@ h1 {
   flex-wrap: wrap;
   gap: 5px;
   row-gap: 5px;
+  margin-bottom: -20px;
 }
 .portfolio-items > * {
   margin-bottom: 20px;
+}
+
+/* --------------------- */
+.video-player {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.play-btn {
+  position: absolute;
+  padding-top: 10px;
+}
+
+/* --- PRICE ------------------ */
+.price-items {
+  display: flex;
+  justify-content:space-between;
+  flex: 30%;
+  gap: 25px;
+  /* align-items: center; */
+}
+.price-item {
+  border: #BDAE82 3px solid;
+  padding-bottom: 0 auto;
+  flex-grow: 1;
+}
+.price-item span {
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  line-height: 36px;
+}
+.price-item .name {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 56px;
+  padding: 40px 0 20px 0;
+}
+.price-item .price {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 48px;
+  padding-bottom: 21px;
+  color: #BDAE82;
+}
+.price-item button {
+  display: block;
+  margin: 40px auto;
+  width: 220px;
+  height: 55px;
+  background-color: #BDAE82;
+  font-family: inherit;
+  font-size:  inherit;
 }
