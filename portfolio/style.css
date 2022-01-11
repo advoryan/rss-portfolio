@@ -268,19 +268,19 @@ h1 {
   font-weight: 700;
   font-size: 28px;
   line-height: 56px;
-  padding: 40px 0 20px 0;
+  padding: 40px 0 21px 0;
 }
 .price-item .price {
   font-family: 'Merriweather', serif;
   font-weight: 700;
   font-size: 24px;
   line-height: 48px;
-  padding-bottom: 21px;
+  padding-bottom: 20px;
   color: #BDAE82;
 }
 .price-item button {
   display: block;
-  margin: 40px auto;
+  margin: 39px auto 40px auto;
   width: 220px;
   height: 55px;
   background-color: #BDAE82;
@@ -301,9 +301,7 @@ h1 {
 }
 .contact-me__container{
   width: 450px;
-  height: 80px;
-  margin: 40px 0 ;
-  outline: olivedrab 1px solid;
+  margin: 60px 20px auto auto;
 }
 .contact-me {
   font-family: 'Merriweather', serif;
@@ -311,11 +309,72 @@ h1 {
   color: #BDAE82;
   font-size: 40px;
   line-height: 80px;
+  padding-bottom: 20px;
 }
-input {
+input, 
+textarea {
+  display: block;
   width: 450px;
   height: 50px;
-  margin: 40px 0px auto auto;
-  background: none;
+  margin: 20px auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: #BDAE82 2px solid;
+  font-family: inherit;
+  font-size: inherit;
+  padding-left: 18px;
+  color: #BDAE82;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
 
+}
+textarea {
+  height: 100px;
+  resize: none;
+}
+::placeholder {
+  color: #BDAE82;
+  padding-top: 11px;
+}
+.message-button {
+  display: block;
+  margin: 30px 0;
+  width: 220px;
+  height: 55px;
+  background-color: #BDAE82;
+  font-family: inherit;
+  font-size:  inherit;
+}
+/* -------- */
+
+.footer {
+  min-height: 150px;
+  display: flex;
+}
+.footer__wrapper {
+  margin: auto 0;
+  display: flex;
+  justify-content: space-between;
+  /* align-content: center; */
+  outline: lawngreen 1px solid;
+  flex: 33%;
+  gap: 20px;
+}
+.footer__wrapper div {
+  /* margin-right: 15px; */
+  line-height: 50px;
+  font-size: inherit;
+  font-family: inherit;
+  /* flex-grow: 1; */
+}
+.footer-data {
+  display: flex;
+  align-self: center;
+  gap: 20px;
+}
+.RSS-link {
+  margin-left: 15px;
+}
+.social-list {
+  display: flex;
+  align-self: center;
+  gap: 21px;
 }
