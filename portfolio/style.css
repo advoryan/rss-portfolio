@@ -353,17 +353,14 @@ textarea {
   margin: auto 0;
   display: flex;
   justify-content: space-between;
-  /* align-content: center; */
   outline: lawngreen 1px solid;
   flex: 33%;
   gap: 20px;
 }
 .footer__wrapper div {
-  /* margin-right: 15px; */
   line-height: 50px;
   font-size: inherit;
   font-family: inherit;
-  /* flex-grow: 1; */
 }
 .footer-data {
   display: flex;
