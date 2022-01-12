@@ -57,7 +57,6 @@ body {
   font-weight: 400;
   font-style: normal;
 }
-
 /* --- HEADER --------------------- */
 .container {
   max-width: 1440px;
@@ -93,19 +92,36 @@ body {
   width: fit-content;
 }
 .header__nav-item li:hover {
-  -webkit-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  transform: scale(1.05);
-  transition-duration: 0.5s;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  transition-duration: 0.2s;
+  color: rgb(255, 158, 89);
 }
-.hero__item a button:hover {
+.header__nav-item li:active {
+  color: #BDAE82;
+}
+.hero__item button:hover {
   background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+  transform: rotate(1deg);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1) rotate(2deg);
+  transition-duration: 0.5s;
   animation: slidebg 5s linear infinite;
+  font-weight:bold;
+  font-size: 1.5em;
 }
 @keyframes slidebg {
   to {
     background-position:20vw;
   }
+}
+.hero__item button:active {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+  transition-duration: 0.1s;
 }
 .header__nav-link {
   margin-right: 31px;
@@ -119,16 +135,16 @@ body {
 }
 .header__switch-lng div a:hover {
   display: block;
-  -webkit-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  transform: scale(1.05);
-  transition-duration: 0.5s;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  transition-duration: 0.1s;
+  color: rgb(255, 158, 89);
 }
 .golden {
   color: #BDAE82;
 }
-
-/* --- HERO ----------------------------- */
+/* --- HERO ----------------------- */
 .hero {
   height: 820px;
   padding-top: 200px;
@@ -159,8 +175,7 @@ h1 {
   font-family: inherit;
   font-size:  inherit;
 }
-
-/* --- h2 HEADINGS ----------------------------- */
+/* --- h2 HEADINGS ---------------- */
 .h2__title {
   font-family: 'Merriweather', serif;
   font-weight: 700;
@@ -184,8 +199,7 @@ h1 {
     margin: 80px auto 60px auto;
     width: 50%;
  }
-
-/* --- SKILLS ----------------------------- */
+/* --- SKILLS -------------------- */
 .skills-items {
   display: flex;
   justify-content: space-between;
@@ -225,8 +239,7 @@ h1 {
   line-height: 36px;
   margin-bottom: 9px;
 }
-
-/* ---------------- */
+/* --- PORTFOLO ------------------- */
 .portfolio-btns {
   display: flex;
   justify-content: center;
@@ -246,6 +259,13 @@ h1 {
   background-color:#BDAE82;
   color: #000000;
 }
+.portfolio-btns button:active {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  transition-duration: 0.1s;
+  background-color:#ece6d1;
+}
 .portfolio-items {
   padding-top: 60px;
   display: flex;
@@ -264,8 +284,7 @@ h1 {
   transform: scale(1.05);
   transition-duration: 3s;
 }
-
-/* --------------------- */
+/* --- VIDEO ---------------------- */
 .video-player {
   position: relative;
   display: flex;
@@ -278,13 +297,18 @@ h1 {
   background: none;
 }
 .play-btn:hover {
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
-  transition-duration: 1s;
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  transition-duration: 0.1s;
 }
-
-/* --- PRICE ------------------ */
+.play-btn:active {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+  transition-duration: 0.5s;
+}
+/* --- PRICE ---------------------- */
 .price-items {
   display: flex;
   justify-content:space-between;
@@ -296,7 +320,6 @@ h1 {
   padding-bottom: 0 auto;
   flex-grow: 1;
 }
-
 .price-item:hover {
   background:
     repeating-linear-gradient(
@@ -337,8 +360,16 @@ h1 {
   font-family: inherit;
   font-size:  inherit;
 }
-
-/* --- CONTACS ------------------ */
+.price-item button:hover {
+  background-color: #5a6d17;
+}
+.price-item button:active {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+  transition-duration: 0.1s;
+}
+/* --- CONTACS -------------------- */
 .contact_me-background {
   max-width: 1440px;
   margin: 0 auto;
@@ -374,7 +405,6 @@ textarea {
   padding-left: 18px;
   color: #BDAE82;
   box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
-
 }
 textarea {
   height: 100px;
@@ -393,14 +423,26 @@ textarea {
   font-family: inherit;
   font-size:  inherit;
 }
-/* -------- */
-
+.message-button:hover {
+  background-color: #5a6d17;
+  -webkit-transform: scale(1.01);
+  -ms-transform: scale(1.01);
+  transform: scale(1.01);
+  margin-left: 1px;
+  transition-duration: 0.2s;
+}
+.message-button:active {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+  transition-duration: 0.1s;
+}
+/* --- FOOTER --------------------- */
 .footer {
   min-height: 150px;
   display: flex;
 }
 .footer__wrapper {
-  /* margin: auto 0; */
   display: flex;
   align-items: center;
   justify-content: space-between;
