@@ -91,14 +91,14 @@ body {
   font-style: normal;
   width: fit-content;
 }
-.header__nav-item li:hover {
+.header__nav-link:hover {
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
   transition-duration: 0.2s;
   color: rgb(255, 158, 89);
 }
-.header__nav-item li:active {
+.header__nav-link:active {
   color: #BDAE82;
 }
 .hero__item button:hover {
