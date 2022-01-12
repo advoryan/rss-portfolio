@@ -110,7 +110,7 @@ body {
   transition-duration: 0.5s;
   animation: slidebg 5s linear infinite;
   font-weight:bold;
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 @keyframes slidebg {
   to {
@@ -462,6 +462,14 @@ textarea {
 .RSS-link {
   margin-left: 15px;
 }
+.RSS-link a:hover,
+.footer-data a:hover {
+  color: rgb(241, 138, 64);
+}
+.RSS-link a:active,
+.footer-data a:active {
+  color: rgb(216, 174, 144);
+}
 .social-list {
   display: flex;
   align-items: center;
@@ -469,4 +477,11 @@ textarea {
 }
 .social-list li svg{
   display: block;
+} 
+.social-list li svg path:hover{
+  fill: rgb(241, 138, 64);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  transition-duration: 0.1s;
 } 
