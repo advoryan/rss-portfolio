@@ -192,7 +192,6 @@ body {
   height: 500px;
   background-position: -5px -120px;
   background-size: auto 620px;
-  outline: springgreen 1px solid;
   padding-top: 98px;
   }
 }
@@ -290,7 +289,6 @@ h1 {
   .skill-item {
     flex-basis: 40%;
     line-height: 0;
-    outline: #FC4F4F solid 1px;
     margin-bottom: 2px;
   }
 }
@@ -471,7 +469,6 @@ h1 {
     flex: wrap;
     flex-direction: column;
     justify-content: space-between;
-    /* flex: 100%; */
     gap: 0px;
     padding-top: 5px;
   }
@@ -487,7 +484,7 @@ h1 {
     margin: 0 auto 50px auto;
   }
   .price-item:nth-child(3) {
-    margin: 0 auto 0 auto;
+    margin: 0 auto 0px auto;
   }
 }
 
@@ -556,8 +553,7 @@ h1 {
   .contact_me-background {
     margin-top: 80px;
     height: 600px;
-    background-size:cover;
-    outline: #FFCF00 1px solid;
+    background-size: cover;
   }
 }
 
@@ -568,12 +564,9 @@ h1 {
 @media (max-width: 768px) {
   .contact-me__container {
     width: 450px;
-    margin: 50px 25px auto auto;
+    margin: 52px auto 0 auto;
   }
 }
-
-
-
 
 .contact-me {
   font-family: 'Merriweather', serif;
@@ -583,6 +576,13 @@ h1 {
   line-height: 80px;
   padding-bottom: 20px;
 }
+@media (max-width: 768px) {
+  .contact-me {
+    text-align: center;
+    padding-bottom: 12px;
+  }
+}
+
 input, 
 textarea {
   display: block;
@@ -614,6 +614,12 @@ textarea {
   font-family: inherit;
   font-size:  inherit;
 }
+@media (max-width: 768px) {
+  .message-button {
+    margin: 30px auto;
+  }
+}
+
 .message-button:hover {
   background-color: #5a6d17;
   -webkit-transform: scale(1.01);
@@ -628,6 +634,7 @@ textarea {
   transform: scale(0.95);
   transition-duration: 0.1s;
 }
+
 /* --- FOOTER --------------------- */
 .footer {
   min-height: 150px;
@@ -640,19 +647,41 @@ textarea {
   flex: 33%;
   gap: 20px;
 }
+@media (max-width: 768px) {
+  .footer__wrapper {
+    flex-direction: column;
+    margin: 30px 0;
+    justify-content: space-around;
+  }
+}
+
 .footer__wrapper div {
   line-height: 50px;
   font-size: inherit;
   font-family: inherit;
 }
+@media (max-width: 768px) {
+  .footer__wrapper div, ul {
+    line-height: 21px;
+  }
+}
+
 .footer-data {
   display: flex;
   align-items: baseline;
   gap: 20px;
 }
+
 .RSS-link {
   margin-left: 15px;
 }
+@media (max-width: 768px) {
+  .RSS-link {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}
+
 .RSS-link a:hover,
 .footer-data a:hover {
   color: rgb(241, 138, 64);
@@ -666,10 +695,10 @@ textarea {
   align-items: center;
   gap: 20px;
 }
-.social-list li svg{
+.social-list li svg {
   display: block;
 } 
-.social-list li svg path:hover{
+.social-list li svg path:hover {
   fill: rgb(241, 138, 64);
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
