@@ -1,17 +1,20 @@
 const hamburger = document.querySelector('.hamburger');
 const navigation = document.querySelector('.navigation');
 const navItems = document.querySelector('.header__nav-item');
+const dark = document.querySelector('.darken');
 
 hamburger.onclick = () => {
     hamburger.classList.toggle('is-active');
     navigation.classList.toggle('is-active');
-    navItems.classList.toggle('is-active');   
+    navItems.classList.toggle('is-active');
+    dark.classList.toggle('is-active');
 };
 
 document.querySelectorAll('.header__nav-link').forEach(n => n.addEventListener('click', () => {
     hamburger.classList.remove('is-active');
     navigation.classList.remove('is-active');
     navItems.classList.remove('is-active');
+    dark.classList.remove('is-active');
 }))
 
 
