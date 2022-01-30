@@ -473,10 +473,10 @@ h1 {
     /* flex-basis: 40%; */
   }
 }
-.portfolio-btns button {
+.portfolio-btn {
   border: #BDAE82 1px solid;
   color: #BDAE82;
-  background-color: inherit;
+  background-color: #000000;
   font-family: inherit;
   font-size:  inherit;
   width: 220px;
@@ -485,15 +485,19 @@ h1 {
 @media (max-width: 768px) {
   .portfolio-btns button {
     flex: 49%;
-    
   }
 }
-
-.portfolio-btns button:hover {
+.portfolio-btn:hover {
   background-color:#BDAE82;
   color: #000000;
 }
-.portfolio-btns button:active {
+
+.portfolio-btn-active {
+  background-color: #BDAE82;
+  color: #000000;
+}
+
+.portfolio-btn:active  {
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
   transform: scale(1.05);

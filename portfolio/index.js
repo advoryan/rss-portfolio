@@ -1,13 +1,38 @@
 // --- PORTFOLIO IMGs CHANGER ---
 const portfolioBtn = document.querySelector('.portfolio-btns');
+const portfolioBtns = document.querySelectorAll('.portfolio-btns button')
 const portfolioImages = document.querySelectorAll('.portfolio-image');
 
 portfolioBtn.addEventListener('click', changeImage = (event) => {
+    portfolioBtns.forEach (btn => {
+        btn.classList.remove('portfolio-btn-active')
+    });
     if(event.target.classList.contains('portfolio-btn')) {
+        event.target.classList.add('portfolio-btn-active');
         console.log(event.target.dataset.season);
+        console.log(event.target);
         portfolioImages.forEach((img, index) => img.src = `../portfolio/assets/img/${event.target.dataset.season}/${index + 1}.jpg`);
     };
 });
+
+document.querySelector('.portfolio-btns').classList.add('portfolio-btns-active');
+console.log(document.querySelector('.portfolio-btns'));
+
+
+// --- PORTFOLIO IMGs CACHE ---
+const preloadSummerImages = (seasons) => {
+    seasons.forEach(element => {
+        for(let i = 1; i <= 6; i++) {
+          const img = new Image();
+          img.src = `..portfolio/assets/img/${element}/${i}.jpg`;
+        }
+    });
+  }
+const seasons = ['winter', 'spring', 'summer', 'autumn'];
+preloadSummerImages(seasons);
+
+
+
 
 // --- HAMBURGER ---
 const hamburger = document.querySelector('.hamburger');
