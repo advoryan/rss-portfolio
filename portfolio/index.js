@@ -1,17 +1,15 @@
+// --- PORTFOLIO IMGs CHANGER ---
 const portfolioBtn = document.querySelector('.portfolio-btns');
 const portfolioImages = document.querySelectorAll('.portfolio-image');
 
 portfolioBtn.addEventListener('click', changeImage = (event) => {
-    // console.log(event);
     if(event.target.classList.contains('portfolio-btn')) {
-        // portfolioBtn.forEach((dataset, index) => console.log(dataset.season));
-        console.log(portfolioBtn.dataset.id);
-        portfolioImages.forEach((img, index) => img.src = `../portfolio/assets/img/winter/${index + 1}.jpg`);
+        console.log(event.target.dataset.season);
+        portfolioImages.forEach((img, index) => img.src = `../portfolio/assets/img/${event.target.dataset.season}/${index + 1}.jpg`);
     };
 });
 
-
-
+// --- HAMBURGER ---
 const hamburger = document.querySelector('.hamburger');
 const navigation = document.querySelector('.navigation');
 const navItems = document.querySelector('.header__nav-item');
@@ -31,7 +29,7 @@ document.querySelectorAll('.header__nav-link').forEach(n => n.addEventListener('
     dark.classList.remove('is-active');
 }))
 
-
+// --- DESCRIPTION ---
 console.log (`
 75 баллов
 
