@@ -1,3 +1,311 @@
+const i18Obj = {
+    'en': {
+      'skills': 'Skills',
+      'portfolio': 'Portfolio',
+      'video': 'Video',
+      'price': 'Price',
+      'contacts': 'Contacts',
+      'hero-title': 'Alexa Rise',
+      'hero-text': 'Save sincere emotions, romantic feelings and happy moments of life together with professional photographer Alexa Rise',
+      'hire': 'Hire me',
+      'skill-title-1': 'Digital photography',
+      'skill-text-1': 'High-quality photos in the studio and on the nature',
+      'skill-title-2': 'Video shooting',
+      'skill-text-2': 'Capture your moments so that they always stay with you',
+      'skill-title-3': 'Rotouch',
+      'skill-text-3': 'I strive to make photography surpass reality',
+      'skill-title-4': 'Audio',
+      'skill-text-4': 'Professional sounds recording for video, advertising, portfolio',
+      'winter': 'Winter',
+      'spring': 'Spring',
+      'summer': 'Summer',
+      'autumn': 'Autumn',
+      'price-description-1-span-1': 'One location',
+      'price-description-1-span-2': '120 photos in color',
+      'price-description-1-span-3': '12 photos in retouch',
+      'price-description-1-span-4': 'Readiness 2-3 weeks',
+      'price-description-1-span-5': 'Make up, visage',
+      'price-description-2-span-1': 'One or two locations',
+      'price-description-2-span-2': '200 photos in color',
+      'price-description-2-span-3': '20 photos in retouch',
+      'price-description-2-span-4': 'Readiness 1-2 weeks',
+      'price-description-2-span-5': 'Make up, visage',
+      'price-description-3-span-1': 'Three locations or more',
+      'price-description-3-span-2': '300 photos in color',
+      'price-description-3-span-3': '50 photos in retouch',
+      'price-description-3-span-4': 'Readiness 1 week',
+      'price-description-3-span-5': 'Make up, visage, hairstyle',
+      'order': 'Order shooting',
+      'contact-me': 'Contact me',
+      'send-message': 'Send message',
+      'Message': 'Message',
+      'Phone': 'Phone',
+      'E-mail': 'E-mail'
+    },
+    'ru': {
+      'skills': 'Навыки',
+      'portfolio': 'Портфолио',
+      'video': 'Видео',
+      'price': 'Цены',
+      'contacts': 'Контакты',
+      'hero-title': 'Алекса Райс',
+      'hero-text': 'Сохраните искренние эмоции, романтические переживания и счастливые моменты жизни вместе с профессиональным фотографом',
+      'hire': 'Пригласить',
+      'skill-title-1': 'Фотография',
+      'skill-text-1': 'Высококачественные фото в студии и на природе',
+      'skill-title-2': 'Видеосъемка',
+      'skill-text-2': 'Запечатлите лучшие моменты, чтобы они всегда оставались с вами',
+      'skill-title-3': 'Ретушь',
+      'skill-text-3': 'Я стремлюсь к тому, чтобы фотография превосходила реальность',
+      'skill-title-4': 'Звук',
+      'skill-text-4': 'Профессиональная запись звука для видео, рекламы, портфолио',
+      'winter': 'Зима',
+      'spring': 'Весна',
+      'summer': 'Лето',
+      'autumn': 'Осень',
+      'price-description-1-span-1': 'Одна локация',
+      'price-description-1-span-2': '120 цветных фото',
+      'price-description-1-span-3': '12 отретушированных фото',
+      'price-description-1-span-4': 'Готовность через 2-3 недели',
+      'price-description-1-span-5': 'Макияж, визаж',
+      'price-description-2-span-1': 'Одна-две локации',
+      'price-description-2-span-2': '200 цветных фото',
+      'price-description-2-span-3': '20 отретушированных фото',
+      'price-description-2-span-4': 'Готовность через 1-2 недели',
+      'price-description-2-span-5': 'Макияж, визаж',
+      'price-description-3-span-1': 'Три локации и больше',
+      'price-description-3-span-2': '300 цветных фото',
+      'price-description-3-span-3': '50 отретушированных фото',
+      'price-description-3-span-4': 'Готовность через 1 неделю',
+      'price-description-3-span-5': 'Макияж, визаж, прическа',
+      'order': 'Заказать съемку',
+      'contact-me': 'Свяжитесь со мной',
+      'send-message': 'Отправить',
+      'Message': 'Сообщение',
+      'Phone': 'Телефон',
+      'E-mail': 'Электронная почта'
+    }
+  }
+
+// - TRANSLATION ---------------------------------------
+const enLink = document.querySelector('.en');
+const ruLink = document.querySelector('.ru');
+
+let lang = localStorage.getItem('lang');
+if (lang == undefined) {
+    lang = 'en';
+    enLink.classList.toggle('golden');
+};
+
+enLink.addEventListener('click', () => {
+    enLink.classList.add('golden');
+    ruLink.classList.remove('golden');
+    localStorage.setItem('lang', 'en');
+    lang = 'en';
+    getTranslate(lang);
+})
+
+ruLink.addEventListener('click', () => {
+    ruLink.classList.add('golden');
+    enLink.classList.remove('golden');
+    localStorage.setItem('lang', 'ru');
+    lang = 'ru';
+    getTranslate(lang);
+})
+
+const allTrns = document.querySelectorAll('[data-i18]');
+const inpTrns = document.querySelectorAll('input');
+const tAreaTrns = document.querySelector('textarea');
+
+const getTranslate = (lang) => {
+    allTrns.forEach( trns => {
+        trns.textContent = i18Obj[lang][trns.getAttribute('data-i18')];
+    });
+    inpTrns.forEach(inp => {
+        inp.placeholder = i18Obj[lang][inp.placeholder]
+    });
+    tAreaTrns.placeholder = i18Obj[lang][tAreaTrns.placeholder]
+    if (lang === 'ru') {
+        ruLink.classList.add('golden');
+        enLink.classList.remove('golden');
+    } else {
+        enLink.classList.add('golden');
+        ruLink.classList.remove('golden');
+    }
+}
+
+getTranslate(lang);
+
+// - THEME -----------------------------------------------------------------
+let theme = localStorage.getItem('theme');
+
+// --- PORTFOLIO IMGs CHANGER ---
+const portfolioBtn = document.querySelector('.portfolio-btns');
+const portfolioBtns = document.querySelectorAll('.portfolio-btns button')
+const portfolioImages = document.querySelectorAll('.portfolio-image');
+
+portfolioBtn.addEventListener('click', changeImage = (event) => {
+    if(event.target.classList.contains('portfolio-btn')) {
+        if (theme === 'light'){
+            buttonsBG('white', 'black');
+            event.target.style.setProperty('background-color', '#BDAE82');
+            event.target.style.setProperty('color', 'white');
+        } else {
+            buttonsBG('black', '#BDAE82');
+            event.target.style.setProperty('background-color', '#BDAE82');
+            event.target.style.setProperty('color', 'black');
+        };
+        portfolioImages.forEach((img, index) => img.src = `../portfolio/assets/img/${event.target.dataset.season}/${index + 1}.jpg`);
+    };
+});
+
+// --- Portfolio buttonsBG FOO ---------------------
+const portfolioButtons = document.querySelectorAll('.portfolio-btn');
+
+buttonsBG = (back, text) => portfolioButtons.forEach( b => {
+    b.style.setProperty('background-color', back);
+    b.style.setProperty('color', text);
+});
+
+// --- NORMALISER --------------
+const buttonsThemed = () => {
+    if (theme === 'light'){
+        buttonsBG('white', 'black')
+        document.querySelector('[data-season="autumn"]').style.setProperty('color', 'white');
+        document.querySelector('[data-season="autumn"]').style.setProperty('background-color', '#BDAE82');
+    } else {
+        buttonsBG('black', '#BDAE82');
+        document.querySelector('[data-season="autumn"]').style.setProperty('color', 'black');
+        document.querySelector('[data-season="autumn"]').style.setProperty('background-color', '#BDAE82');
+    };
+}
+
+buttonsThemed();
+
+document.querySelector('footer').style.setProperty('color', 'white');
+
+
+// THEME SWITCHER LISTENER
+const themeSwitcher = document.querySelector('.day-night-mode-svg-icon');
+
+themeSwitcher.addEventListener('click', () => {
+
+    if (localStorage.getItem('theme') === 'light') {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    };
+    theme = localStorage.getItem('theme');
+
+    swichFoo()
+
+});
+
+const swichFoo = () => {
+    
+    if (theme === 'light') {
+
+        document.body.style.setProperty('color', 'black');
+        document.body.style.setProperty('background-color', 'white');
+
+        const containters = document.querySelectorAll('.container');
+        containters.forEach( cont => {
+            if (!cont.classList.contains('footer')) {
+                cont.classList.add('light-theme');
+            }
+        });
+
+        const h2HeadsLine = document.querySelectorAll('.h2__line');
+        h2HeadsLine.forEach( hl => {
+            hl.classList.add('h2__line_dark');
+        });
+
+        const h2Heads = document.querySelectorAll('.h2__title');
+        h2Heads.forEach( h => {
+            h.style.setProperty('background-color', 'white');
+            h.style.setProperty('color', 'black');
+        });
+
+        const skillsFrames=document.querySelectorAll('.skill-item');
+        skillsFrames.forEach( s => {
+            s.style.removeProperty('color');
+        });
+
+        const priceFrames=document.querySelectorAll('.price-item');
+        priceFrames.forEach( s => {
+            if(!s.classList.contains('price')) {
+                s.style.removeProperty('color');
+            }
+        });
+
+        document.querySelector('.day-night-mode-svg-icon').classList.add('day-night-mode-svg-icon-light');
+
+    } else {
+
+        document.body.style.removeProperty('color');
+        document.body.style.removeProperty('background-color');
+
+        const containters = document.querySelectorAll('.container');
+        containters.forEach( cont => {
+            cont.classList.remove('light-theme');
+        });
+
+        const h2HeadsLine = document.querySelectorAll('.h2__line');
+        h2HeadsLine.forEach( hl => {
+            hl.classList.remove('h2__line_dark');
+        });
+
+        const h2Heads = document.querySelectorAll('.h2__title');
+        h2Heads.forEach( h => {
+            h.style.removeProperty('background-color');
+            h.style.removeProperty('color');
+        });
+
+        const skillsFrames=document.querySelectorAll('.skill-item');
+        skillsFrames.forEach( s => {
+            s.style.setProperty('color', 'white');
+        });
+
+        const priceFrames=document.querySelectorAll('.price-item');
+        priceFrames.forEach( s => {
+            if(!s.classList.contains('price')) {
+                s.style.setProperty('color', 'white');
+            }
+        });
+
+        document.querySelector('.day-night-mode-svg-icon').classList.remove('day-night-mode-svg-icon-light');
+
+    };
+
+    if (portfolioBtn.classList.contains('portfolio-btn')) {
+        if (theme === 'light'){
+            buttonsBG('white', 'black');
+            portfolioBtn.target.style.setProperty('background-color', '#BDAE82');
+            portfolioBtn.target.style.setProperty('color', 'white');
+        } else {
+            buttonsBG('black', '#BDAE82');
+            portfolioBtn.target.style.setProperty('background-color', '#BDAE82');
+            portfolioBtn.target.style.setProperty('color', 'black');
+        };
+        portfolioImages.forEach((img, index) => img.src = `../portfolio/assets/img/${event.target.dataset.season}/${index + 1}.jpg`);
+    };
+};
+
+swichFoo(); // <--- start decoration according last choosen theme
+
+// --- PORTFOLIO IMGs CACHE ---
+const preloadSummerImages = (seasons) => {
+    seasons.forEach(element => {
+        for(let i = 1; i <= 6; i++) {
+          const img = new Image();
+          img.src = `../portfolio/assets/img/${element}/${i}.jpg`;
+        }
+    });
+  }
+const seasons = ['winter', 'spring', 'summer', 'autumn'];
+preloadSummerImages(seasons);
+
+// --- HAMBURGER ---
 const hamburger = document.querySelector('.hamburger');
 const navigation = document.querySelector('.navigation');
 const navItems = document.querySelector('.header__nav-item');
@@ -18,42 +326,48 @@ document.querySelectorAll('.header__nav-link').forEach(n => n.addEventListener('
 }))
 
 
-console.log (`
-75 баллов
 
-Выполненные пункты:
-1) блок header
-2) секция hero
-3) секция skills
-4) секция portfolio
-5) секция video
-6) секция price
-7) секция contacts
-8) блок footer
-9) нет полосы прокрутки при ширине страницы от 1440рх до 768рх
-10) нет полосы прокрутки при ширине страницы от 768рх до 480рх
-11) нет полосы прокрутки при ширине страницы от 480рх до 320рх
-12) при ширине страницы 768рх панель навигации скрывается, появляется бургер-иконка
-13) при нажатии на бургер-иконку справа плавно появляется адаптивное меню, бургер-иконка изменяется на крестик
-14) высота адаптивного меню занимает всю высоту экрана. При ширине экрана 768-620рх вёрстка меню соответствует макету, когда экран становится уже, меню занимает всю ширину экрана
-15) при нажатии на крестик адаптивное меню плавно скрывается уезжая за правую часть экрана, крестик превращается в бургер-иконку
-16) бургер-иконка, которая при клике превращается в крестик, создана при помощи css-анимаций без использования изображений
-17) ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям
-18) при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, крестик превращается в бургер-иконку
-`);
+// --- DESCRIPTION PART 3 ---
+console.log (`Оценка: 75 баллов
 
+1) при кликах по кнопкам Winter, Spring, Summer, Autumn в секции portfolio отображаются изображения из папки с соответствующим названием
+2) кнопка, по которой кликнули, становится активной т.е. выделяется стилем. Другие кнопки при этом будут неактивными
+3) при клике по надписи ru англоязычная страница переводится на русский язык
+4) при клике по надписи en русскоязычная страница переводится на английский язык
+5) надписи en или ru, соответствующие текущему языку страницы, становятся активными т.е. выделяются стилем
+6) тёмная тема приложения сменяется светлой
+7) светлая тема приложения сменяется тёмной
+8) после смены светлой и тёмной темы интерактивные элементы по-прежнему изменяют внешний вид при наведении и клике и при этом остаются видимыми на странице (нет ситуации с белым шрифтом на белом фоне)
+9) выбранный пользователем язык отображения страницы и светлая или тёмная тема сохраняются при перезагрузке страницы
+10) сложные эффекты для кнопок при наведении и/или клике
+`)
+  
+// --- DESCRIPTION PART 2 ---
+// console.log (`
+// 75 баллов
 
+// Выполненные пункты:
+// 1) блок header
+// 2) секция hero
+// 3) секция skills
+// 4) секция portfolio
+// 5) секция video
+// 6) секция price
+// 7) секция contacts
+// 8) блок footer
+// 9) нет полосы прокрутки при ширине страницы от 1440рх до 768рх
+// 10) нет полосы прокрутки при ширине страницы от 768рх до 480рх
+// 11) нет полосы прокрутки при ширине страницы от 480рх до 320рх
+// 12) при ширине страницы 768рх панель навигации скрывается, появляется бургер-иконка
+// 13) при нажатии на бургер-иконку справа плавно появляется адаптивное меню, бургер-иконка изменяется на крестик
+// 14) высота адаптивного меню занимает всю высоту экрана. При ширине экрана 768-620рх вёрстка меню соответствует макету, когда экран становится уже, меню занимает всю ширину экрана
+// 15) при нажатии на крестик адаптивное меню плавно скрывается уезжая за правую часть экрана, крестик превращается в бургер-иконку
+// 16) бургер-иконка, которая при клике превращается в крестик, создана при помощи css-анимаций без использования изображений
+// 17) ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям
+// 18) при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, крестик превращается в бургер-иконку
+// `);
 
-
-
-
-
-
-
-
-
-
-
+// --- DESCRIPTION PART 1 ---
 // console.log (
 // `Ваша оценка - 100 баллов\n
 // ✔ [+10] Вёрстка валидная. Для проверки валидности вёрстки используйте сервис https://validator.w3.org/\n
