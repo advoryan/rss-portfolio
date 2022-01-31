@@ -30,7 +30,7 @@ a,
 :visited {
 	outline: none;
 	text-decoration: none;
-  color: #FFFFFF;
+  color: inherit;
 }
 :visited {
   color: inherit;
@@ -52,6 +52,7 @@ html {
 :root {
   --color-gold: #bdae82;
   --color-black: #000000;
+  --color-white: #FFFFFF;
   --fontSizeInter: 20px;
   --line-heightInter: 40px;
   --fontSizeMerriweather: 40px;
@@ -88,6 +89,7 @@ body {
   background: url('../portfolio/assets/img/bg.jpg');
   background-repeat: no-repeat;
   background-position: center 0;
+  color: #fff;
 }
 @media (max-width: 768px) {
   .container__background {
@@ -130,6 +132,48 @@ body {
     padding-left: 60px;
   }
 }
+/* --- DAY/NIGHT light button --- */ 
+.day-night-mode-svg-icon {
+  fill:#ffffff;
+  margin-left: 20px;
+}
+.day-night-mode-svg-icon:hover {
+  transform: scale(1.2);
+  transition-duration: 0.3s;
+  background: radial-gradient(circle closest-side at 18px 27px, #fce148, transparent);
+  fill:#ffffff8a;
+}
+.day-night-mode-svg-icon:active{
+  box-shadow: 0 0 200px 320px rgba(255, 246, 182, 0.50);
+  border-radius: 50%;
+}
+
+.day-night-mode-svg-icon-light {
+  background: radial-gradient(circle closest-side at 18px 27px, #fce148, transparent);
+  fill:#ffffff79;
+}
+.day-night-mode-svg-icon-light:hover {
+  transform: scale(1.2);
+  transition-duration: 0.3s;
+  background: radial-gradient(circle closest-side at 18px 27px, #000000, transparent);
+  fill:#ffffff8a;
+}
+.day-night-mode-svg-icon-light:active{
+  box-shadow: 0 0 200px 320px rgba(19, 19, 18, 0.5);
+  border-radius: 50%;
+}
+
+/* --- DAY/NIGHT SWITCHER --------------- */
+.light-theme {
+  background-color: #fff;
+  color: #000;
+}
+.light-theme:hover {
+  color: #000;
+}
+
+/* ------------------------------- */
+
 .header__right-pannel {
   margin-left: auto;
   margin-right: 20px;
@@ -250,13 +294,13 @@ body {
   height: 2px;
   background-color: #ecf0f1;
   display: block;
-  margin: 11px auto;
+  margin: 11px auto 0 auto;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 .hamburger {
-  margin-right: 45px;
+  margin-left: 10px;
   display: none;
 }
 .hamburger:hover{
@@ -300,6 +344,7 @@ body {
   background-position: center -90px;
   background-repeat: no-repeat;
   background-clip:padding-box;
+  color: #fff;
 }
 @media (max-width: 768px) {
   .hero {
@@ -337,6 +382,7 @@ h1 {
   font-size: calc(var(--fontSizeMerriweather) * 1.5);
   /* font-size: 32px; */
   padding-bottom: 50px;
+  color: #fff;
 }
 @media (max-width: 768px) {
   h1 {
@@ -384,9 +430,26 @@ h1 {
       #bdae82 41px, 
       #000 41px
     );
+  margin: 80px auto 60px auto;
+  width: 50%;
+ }
+ .h2__line_dark {
+  background-image: linear-gradient(
+      to top, 
+      rgb(255, 255, 255) 39px, 
+      #000000 39px, 
+      #000000 41px, 
+      rgb(255, 255, 255) 41px
+    );
     margin: 80px auto 60px auto;
     width: 50%;
  }
+/* .h2__line_dark {
+  background-image: linear-gradient(to top, rgb(255, 255, 255) 39px, #000000 39px, #000000 41px, rgb(255, 255, 255) 41px);
+    margin: 80px auto 60px auto;
+    width: 50%;
+ } */
+
 
 /* --- SKILLS -------------------- */
 .skills-items {
@@ -473,6 +536,7 @@ h1 {
     /* flex-basis: 40%; */
   }
 }
+
 .portfolio-btn {
   border: #BDAE82 1px solid;
   color: #BDAE82;
@@ -487,22 +551,29 @@ h1 {
     flex: 49%;
   }
 }
+
 .portfolio-btn:hover {
   background-color:#BDAE82;
   color: #000000;
 }
-
+/*Добавляется через JS-*/
 .portfolio-btn-active {
   background-color: #BDAE82;
   color: #000000;
 }
+.portfolio-btn-active-light {
+  background-color: #000000;
+  color: #ffffff;
+}
+/*---------------------*/
+
 
 .portfolio-btn:active  {
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
   transform: scale(1.05);
   transition-duration: 0.1s;
-  background-color:#ece6d1;
+  /* background-color:#ece6d1; */
 }
 .portfolio-items {
   padding-top: 60px;
@@ -772,6 +843,7 @@ textarea {
 }
 /* --- FOOTER --------------------- */
 .footer {
+  background-color: black;
   min-height: 150px;
   display: flex;
 }
