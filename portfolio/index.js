@@ -38,7 +38,7 @@ const i18Obj = {
       'order': 'Order shooting',
       'contact-me': 'Contact me',
       'send-message': 'Send message',
-      'message': 'Message',
+      'Message': 'Message',
       'Phone': 'Phone',
       'E-mail': 'E-mail'
     },
@@ -187,6 +187,9 @@ const buttonsThemed = () => {
 
 buttonsThemed();
 
+document.querySelector('footer').style.setProperty('color', 'white');
+
+
 // THEME SWITCHER LISTENER
 const themeSwitcher = document.querySelector('.day-night-mode-svg-icon');
 
@@ -213,7 +216,10 @@ const swichFoo = () => {
 
         const containters = document.querySelectorAll('.container');
         containters.forEach( cont => {
-            cont.classList.add('light-theme');
+            console.log(cont.classList.contains('footer'));
+            if (!cont.classList.contains('footer')) {
+                cont.classList.add('light-theme');
+            }
         });
 
         const h2HeadsLine = document.querySelectorAll('.h2__line');
@@ -248,6 +254,7 @@ const swichFoo = () => {
 
         const containters = document.querySelectorAll('.container');
         containters.forEach( cont => {
+            console.log(`dfsdfdsf ${cont}`);
             cont.classList.remove('light-theme');
         });
 
@@ -317,8 +324,6 @@ const preloadSummerImages = (seasons) => {
   }
 const seasons = ['winter', 'spring', 'summer', 'autumn'];
 preloadSummerImages(seasons);
-
-
 
 // --- HAMBURGER ---
 const hamburger = document.querySelector('.hamburger');

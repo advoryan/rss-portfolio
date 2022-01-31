@@ -30,7 +30,7 @@ a,
 :visited {
 	outline: none;
 	text-decoration: none;
-  color: inherit;
+  /* color: inherit; */
 }
 :visited {
   color: inherit;
@@ -132,6 +132,7 @@ body {
     padding-left: 60px;
   }
 }
+
 /* --- DAY/NIGHT light button --- */ 
 .day-night-mode-svg-icon {
   fill:#ffffff;
@@ -144,7 +145,7 @@ body {
   fill:#ffffff8a;
 }
 .day-night-mode-svg-icon:active{
-  box-shadow: 0 0 200px 320px rgba(255, 246, 182, 0.50);
+  box-shadow: 0 0 200px 320px rgba(255, 226, 147, 0.733);
   border-radius: 50%;
 }
 
@@ -156,10 +157,10 @@ body {
   transform: scale(1.2);
   transition-duration: 0.3s;
   background: radial-gradient(circle closest-side at 18px 27px, #000000, transparent);
-  fill:#ffffff8a;
+  fill:#ffffff9d;
 }
 .day-night-mode-svg-icon-light:active{
-  box-shadow: 0 0 200px 320px rgba(19, 19, 18, 0.5);
+  box-shadow: 0 0 200px 320px rgba(19, 19, 18, 0.774);
   border-radius: 50%;
 }
 
@@ -846,6 +847,7 @@ textarea {
   background-color: black;
   min-height: 150px;
   display: flex;
+  color:#ffffff;
 }
 .footer__wrapper {
   display: flex;
