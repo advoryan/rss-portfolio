@@ -122,7 +122,6 @@ const getTranslate = (lang) => {
         trns.textContent = i18Obj[lang][trns.getAttribute('data-i18')];
     });
     inpTrns.forEach(inp => {
-        console.log(inp.placeholder);
         inp.placeholder = i18Obj[lang][inp.placeholder]
     });
     tAreaTrns.placeholder = i18Obj[lang][tAreaTrns.placeholder]
@@ -137,10 +136,8 @@ const getTranslate = (lang) => {
 
 getTranslate(lang);
 
-
 // - THEME -----------------------------------------------------------------
 let theme = localStorage.getItem('theme');
-console.log(`Начальная тема ${theme}`);
 
 // --- PORTFOLIO IMGs CHANGER ---
 const portfolioBtn = document.querySelector('.portfolio-btns');
@@ -176,12 +173,10 @@ const buttonsThemed = () => {
         buttonsBG('white', 'black')
         document.querySelector('[data-season="autumn"]').style.setProperty('color', 'white');
         document.querySelector('[data-season="autumn"]').style.setProperty('background-color', '#BDAE82');
-        // document.querySelector('.day-night-mode-svg-icon').classList.add('day-night-mode-svg-icon-light');
     } else {
         buttonsBG('black', '#BDAE82');
         document.querySelector('[data-season="autumn"]').style.setProperty('color', 'black');
         document.querySelector('[data-season="autumn"]').style.setProperty('background-color', '#BDAE82');
-        // document.querySelector('.day-night-mode-svg-icon').classList.remove('day-night-mode-svg-icon-light');
     };
 }
 
@@ -201,7 +196,6 @@ themeSwitcher.addEventListener('click', () => {
         localStorage.setItem('theme', 'light');
     };
     theme = localStorage.getItem('theme');
-    console.log(`После нажатия на кнопку: ${theme}`);
 
     swichFoo()
 
@@ -216,7 +210,6 @@ const swichFoo = () => {
 
         const containters = document.querySelectorAll('.container');
         containters.forEach( cont => {
-            console.log(cont.classList.contains('footer'));
             if (!cont.classList.contains('footer')) {
                 cont.classList.add('light-theme');
             }
@@ -254,7 +247,6 @@ const swichFoo = () => {
 
         const containters = document.querySelectorAll('.container');
         containters.forEach( cont => {
-            console.log(`dfsdfdsf ${cont}`);
             cont.classList.remove('light-theme');
         });
 
@@ -301,18 +293,6 @@ const swichFoo = () => {
 
 swichFoo(); // <--- start decoration according last choosen theme
 
-// --- CLICK EVENT ---
-// let clickEvent = new Event('click');
-// console.log(document.querySelector('[data-season="autumn"]').style);
-
-// document.querySelector('[data-season="autumn"]').style.setProperty('color', 'white');
-// document.querySelector('[data-season="autumn"]').dispatchEvent(clickEvent);
-
-// if (theme != localStorage.getItem('theme')) {
-    // document.querySelector('.day-night-mode-svg-icon').dispatchEvent(clickEvent);
-// }
-
-
 // --- PORTFOLIO IMGs CACHE ---
 const preloadSummerImages = (seasons) => {
     seasons.forEach(element => {
@@ -347,12 +327,22 @@ document.querySelectorAll('.header__nav-link').forEach(n => n.addEventListener('
 
 
 
+// --- DESCRIPTION PART 3 ---
+console.log (`Оценка: 75 баллов
 
-
-
-
+1) при кликах по кнопкам Winter, Spring, Summer, Autumn в секции portfolio отображаются изображения из папки с соответствующим названием
+2) кнопка, по которой кликнули, становится активной т.е. выделяется стилем. Другие кнопки при этом будут неактивными
+3) при клике по надписи ru англоязычная страница переводится на русский язык
+4) при клике по надписи en русскоязычная страница переводится на английский язык
+5) надписи en или ru, соответствующие текущему языку страницы, становятся активными т.е. выделяются стилем
+6) тёмная тема приложения сменяется светлой
+7) светлая тема приложения сменяется тёмной
+8) после смены светлой и тёмной темы интерактивные элементы по-прежнему изменяют внешний вид при наведении и клике и при этом остаются видимыми на странице (нет ситуации с белым шрифтом на белом фоне)
+9) выбранный пользователем язык отображения страницы и светлая или тёмная тема сохраняются при перезагрузке страницы
+10) сложные эффекты для кнопок при наведении и/или клике
+`)
   
-// --- DESCRIPTION ---
+// --- DESCRIPTION PART 2 ---
 // console.log (`
 // 75 баллов
 
@@ -377,18 +367,7 @@ document.querySelectorAll('.header__nav-link').forEach(n => n.addEventListener('
 // 18) при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, крестик превращается в бургер-иконку
 // `);
 
-
-
-
-
-
-
-
-
-
-
-
-
+// --- DESCRIPTION PART 1 ---
 // console.log (
 // `Ваша оценка - 100 баллов\n
 // ✔ [+10] Вёрстка валидная. Для проверки валидности вёрстки используйте сервис https://validator.w3.org/\n
