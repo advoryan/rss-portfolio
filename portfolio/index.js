@@ -37,7 +37,10 @@ const i18Obj = {
       'price-description-3-span-5': 'Make up, visage, hairstyle',
       'order': 'Order shooting',
       'contact-me': 'Contact me',
-      'send-message': 'Send message'
+      'send-message': 'Send message',
+      'message': 'Message',
+      'Phone': 'Phone',
+      'E-mail': 'E-mail'
     },
     'ru': {
       'skills': 'Навыки',
@@ -77,20 +80,65 @@ const i18Obj = {
       'price-description-3-span-5': 'Макияж, визаж, прическа',
       'order': 'Заказать съемку',
       'contact-me': 'Свяжитесь со мной',
-      'send-message': 'Отправить'
+      'send-message': 'Отправить',
+      'Message': 'Сообщение',
+      'Phone': 'Телефон',
+      'E-mail': 'Электронная почта'
     }
   }
 
-let lang = 'ru';
+// - TRANSLATION ---------------------------------------
+const enLink = document.querySelector('.en');
+const ruLink = document.querySelector('.ru');
 
-const allTrns = document.querySelectorAll('[data-i18]');
-allTrns.forEach( function callback(trns, index) {
-    console.log(index, trns.getAttribute('data-i18bj'), trns.textContent);
-    trns.textContent = i18Obj[lang][trns.getAttribute('data-i18')];
-    
+let lang = localStorage.getItem('lang');
+if (lang == undefined) {
+    lang = 'en';
+    enLink.classList.toggle('golden');
+};
+
+enLink.addEventListener('click', () => {
+    enLink.classList.add('golden');
+    ruLink.classList.remove('golden');
+    localStorage.setItem('lang', 'en');
+    lang = 'en';
+    getTranslate(lang);
 })
 
+ruLink.addEventListener('click', () => {
+    ruLink.classList.add('golden');
+    enLink.classList.remove('golden');
+    localStorage.setItem('lang', 'ru');
+    lang = 'ru';
+    getTranslate(lang);
+})
 
+const allTrns = document.querySelectorAll('[data-i18]');
+const inpTrns = document.querySelectorAll('input');
+const tAreaTrns = document.querySelector('textarea');
+
+const getTranslate = (lang) => {
+    allTrns.forEach( trns => {
+        trns.textContent = i18Obj[lang][trns.getAttribute('data-i18')];
+    });
+    inpTrns.forEach(inp => {
+        console.log(inp.placeholder);
+        inp.placeholder = i18Obj[lang][inp.placeholder]
+    });
+    tAreaTrns.placeholder = i18Obj[lang][tAreaTrns.placeholder]
+    if (lang === 'ru') {
+        ruLink.classList.add('golden');
+        enLink.classList.remove('golden');
+    } else {
+        enLink.classList.add('golden');
+        ruLink.classList.remove('golden');
+    }
+}
+
+getTranslate(lang);
+
+
+// - THEME -----------------------------------------------------------------
 let theme = localStorage.getItem('theme');
 console.log(`Начальная тема ${theme}`);
 
