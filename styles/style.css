@@ -1,0 +1,16 @@
+@import url('../styles/reset.css');
+
+.wrapper {
+    outline: 1px red solid;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;   
+}
+.container {
+    border: 1px blue solid;
+    max-width: 1460px;
+    margin: auto;
+}
+video {
+    width: 100%;
+}
