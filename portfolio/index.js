@@ -310,12 +310,19 @@ const hamburger = document.querySelector('.hamburger');
 const navigation = document.querySelector('.navigation');
 const navItems = document.querySelector('.header__nav-item');
 const dark = document.querySelector('.darken');
+const cross = document.querySelectorAll('.hamburger .line');
 
 hamburger.onclick = () => {
     hamburger.classList.toggle('is-active');
     navigation.classList.toggle('is-active');
     navItems.classList.toggle('is-active');
     dark.classList.toggle('is-active');
+    if (theme === 'light') {
+        navigation.classList.toggle('nav-light');
+        cross.forEach ( c => {
+            c.classList.toggle('hamburger-line-light')
+        })
+    }
 };
 
 document.querySelectorAll('.header__nav-link').forEach(n => n.addEventListener('click', () => {
@@ -323,8 +330,13 @@ document.querySelectorAll('.header__nav-link').forEach(n => n.addEventListener('
     navigation.classList.remove('is-active');
     navItems.classList.remove('is-active');
     dark.classList.remove('is-active');
+    if (theme === 'light') {
+        navigation.classList.remove('nav-light');
+        cross.forEach ( c => {
+            c.classList.remove('hamburger-line-light')
+        })
+    }
 }))
-
 
 
 // --- DESCRIPTION PART 3 ---
