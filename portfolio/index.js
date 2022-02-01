@@ -167,21 +167,6 @@ buttonsBG = (back, text) => portfolioButtons.forEach( b => {
     b.style.setProperty('color', text);
 });
 
-// --- NORMALISER --------------
-const buttonsThemed = () => {
-    if (theme === 'light'){
-        buttonsBG('white', 'black')
-        document.querySelector('[data-season="autumn"]').style.setProperty('color', 'white');
-        document.querySelector('[data-season="autumn"]').style.setProperty('background-color', '#BDAE82');
-    } else {
-        buttonsBG('black', '#BDAE82');
-        document.querySelector('[data-season="autumn"]').style.setProperty('color', 'black');
-        document.querySelector('[data-season="autumn"]').style.setProperty('background-color', '#BDAE82');
-    };
-}
-
-buttonsThemed();
-
 document.querySelector('footer').style.setProperty('color', 'white');
 
 
@@ -197,7 +182,8 @@ themeSwitcher.addEventListener('click', () => {
     };
     theme = localStorage.getItem('theme');
 
-    swichFoo()
+    swichFoo();
+    buttonsThemed();
 
 });
 
@@ -277,21 +263,21 @@ const swichFoo = () => {
 
     };
 
-    if (portfolioBtn.classList.contains('portfolio-btn')) {
-        if (theme === 'light'){
-            buttonsBG('white', 'black');
-            portfolioBtn.target.style.setProperty('background-color', '#BDAE82');
-            portfolioBtn.target.style.setProperty('color', 'white');
-        } else {
-            buttonsBG('black', '#BDAE82');
-            portfolioBtn.target.style.setProperty('background-color', '#BDAE82');
-            portfolioBtn.target.style.setProperty('color', 'black');
-        };
-        portfolioImages.forEach((img, index) => img.src = `../portfolio/assets/img/${event.target.dataset.season}/${index + 1}.jpg`);
-    };
+        // if (theme === 'light'){
+        //     buttonsBG('white', 'black');
+        //     portfolioBtn.target.style.setProperty('background-color', '#BDAE82');
+        //     portfolioBtn.target.style.setProperty('color', 'white');
+        // } else {
+        //     buttonsBG('black', '#BDAE82');
+        //     portfolioBtn.target.style.setProperty('background-color', '#BDAE82');
+        //     portfolioBtn.target.style.setProperty('color', 'black');
+        // };
+        // portfolioImages.forEach((img, index) => img.src = `../portfolio/assets/img/${event.target.dataset.season}/${index + 1}.jpg`);
+    
 };
 
 swichFoo(); // <--- start decoration according last choosen theme
+
 
 // --- PORTFOLIO IMGs CACHE ---
 const preloadSummerImages = (seasons) => {
@@ -338,6 +324,21 @@ document.querySelectorAll('.header__nav-link').forEach(n => n.addEventListener('
     }
 }))
 
+
+// --- NORMALISER --------------
+const buttonsThemed = () => {
+    if (theme === 'light'){
+        buttonsBG('white', 'black')
+        document.querySelector('[data-season="autumn"]').style.setProperty('color', 'white');
+        document.querySelector('[data-season="autumn"]').style.setProperty('background-color', '#BDAE82');
+    } else {
+        buttonsBG('black', '#BDAE82');
+        document.querySelector('[data-season="autumn"]').style.setProperty('color', 'black');
+        document.querySelector('[data-season="autumn"]').style.setProperty('background-color', '#BDAE82');
+    };
+}
+
+buttonsThemed();
 
 // --- DESCRIPTION PART 3 ---
 console.log (`Оценка: 75 баллов
