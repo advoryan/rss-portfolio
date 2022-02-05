@@ -1,8 +1,8 @@
 const video = document.querySelector('video');
 const playBtn = document.querySelector('.control-bar__play-btn');
 const playBtnVideo = document.querySelector('.player__play-btn-video');
-let isPlaying; 
-
+// let isPlaying; 
+ 
 const isPlay = () => video.addEventListener ('playing', function() {isPlaying = true});
  
 const play = () => video.play();
