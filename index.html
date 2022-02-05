@@ -5,15 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../advoryan-JSFEPRESCHOOL/styles/style.css">
-    <title>Document</title>
+    <title>Custom Video Player</title>
 </head>
 <body>  
+
     <div class="wrapper">
-        <div class="container">
 
-            <video src="../advoryan-JSFEPRESCHOOL/assets/video/video.mp4">
+        <div class="player">
 
-            </video>
+            <video class="player__video" src="../advoryan-JSFEPRESCHOOL/assets/video/video.mp4"></video>
+            
+            <div class="player__play-big-btn player__play-big-btn--onPause"></div>
+            
+                <div class="control-bar">
+
+                    <div class="control-bar__progress">
+                        <div class="control-bar__progress-fill"></div>
+                    </div>
+                    
+                    <button class="control-bar__play-btn"></button>
+
+
+                </div>
 
         </div>
     </div>
