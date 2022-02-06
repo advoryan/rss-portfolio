@@ -2,10 +2,10 @@
 
 .wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
-    padding: 10px;
     background-color: rgb(35, 34, 39);
 }
 
@@ -16,11 +16,14 @@
     align-items: center;
     overflow: hidden;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    margin: 10px;
 }
 
 .player__video {
     display: block;
     width: 100%;
+    height:100%;
 }
 
 .player__main-play-btn {
@@ -28,6 +31,7 @@
     background-image: url('../assets/svg/play-btn.svg'); 
     background-repeat: no-repeat;
     background-position: center;
+    /* background-size: 50%; */
     width: 80px;
     height: 80px;
     z-index: -1;
@@ -56,18 +60,24 @@
     bottom: -30px;
     transition: 0.3s;
 }
-.control-bar:hover {
+.control-bar:hover,
+.hover {
     bottom: 0;
 }
 .control-bar:hover .play-btn,
+.hover .play-btn,
 .control-bar:hover .volume-btn,
-.control-bar:hover .volume {
+.hover .volume-btn,
+.control-bar:hover .volume,
+.hover .volume {
     display: flex;
 }
-.control-bar:hover .progress {
+.control-bar:hover .progress
+.hover .progress {
     flex-grow: 0.75;
 }
-.control-bar:hover .volume {
+.control-bar:hover .volume,
+.hover .volume {
     flex-grow: 0.25;
 }
 
@@ -95,7 +105,6 @@
 .progress__filled {
     height: 100%;
     background-color:rgba(255, 136, 0, 0.2);
-    /* flex-grow: 0.5; */
     transition: 0.2s;
 }
 
@@ -120,10 +129,52 @@
 .volume__filled {
     height: 100%;
     background-color:rgba(255, 136, 0, 0.2);
-    /* flex-grow: 0.5; */
     transition: 0.2s;
 }
 
 .muted {
     background-image: url('../assets/svg/mute.svg'); 
+}
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    z-index: 0;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+}
+footer > * {
+    margin: 10px;
+}
+.footer__git {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer__git:hover {
+    color: #fff;
+    transition: 0.2s;
+}
+.footer__year {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer__logo {
+    background-image: url('../assets/svg/rs_school_js.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+}
+.footer__link:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
 }

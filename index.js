@@ -6,9 +6,15 @@ const progressFilled = document.querySelector('.progress__filled');
 const volumeBtn = document.querySelector('.volume-btn');
 const volume = document.querySelector('.volume');
 const volumeFilled = document.querySelector('.volume__filled');
+const controlBar = document.querySelector('.control-bar');
+
+const hoverAdd = () => controlBar.classList.add('hover');
+const hoverRemove = () => controlBar.classList.remove('hover');
 
 const stopStart = () => {
     video.paused ? video.play() : video.pause();
+    hoverAdd();
+    setTimeout(hoverRemove, 4000 );
 };
 
 const changePlayIcons = () => {
@@ -32,11 +38,19 @@ const updateVideoVolumeScroll = (event) => {
         video.volume = Math.min((video.volume + 0.1), 1)
     } else {
         video.volume = Math.max((video.volume - 0.1), 0)
-    }
+    };
+
+    video.volume === 0 ? volumeBtn.classList.add('muted') : volumeBtn.classList.remove('muted');
 }
 const muting = () => {
     volumeBtn.classList.toggle('muted');
-    video.muted ? video.muted = false : video.muted = true;
+    if (video.muted === false) {
+        video.muted = true;
+        video.volume = 0;
+    } else {
+        video.muted = false;
+        video.volume = 0.3;
+    }
 }
 
 video.addEventListener('click', clk => stopStart())
@@ -57,6 +71,5 @@ volumeBtn.addEventListener('click', muting)
 video.addEventListener('play', changePlayIcons)
 video.addEventListener('pause', changePlayIcons)
 
-// default volume settings
 video.volume = 0.5
 updateVolume();
