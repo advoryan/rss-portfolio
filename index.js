@@ -1,77 +1,62 @@
-const video = document.querySelector('video');
-const playBtn = document.querySelector('.control-bar__play-btn');
-const playBtnVideo = document.querySelector('.player__play-btn-video');
-// let isPlaying; 
- 
-const isPlay = () => video.addEventListener ('playing', function() {isPlaying = true});
- 
-const play = () => video.play();
-const pause = () => video.pause();
+const video = document.querySelector('.player__video');
+const playBtnMain = document.querySelector('.player__main-play-btn');
+const playBtn = document.querySelector('.play-btn');
+const progress = document.querySelector('.progress');
+const progressFilled = document.querySelector('.progress__filled');
+const volumeBtn = document.querySelector('.volume-btn');
+const volume = document.querySelector('.volume');
+const volumeFilled = document.querySelector('.volume__filled');
+
 const stopStart = () => {
-    playBtn.classList.toggle('pause');
-    playBtnVideo.classList.toggle('onPause');
-    isPlay()
-    if (isPlaying) {
-        pause();
-        // isPlaying = false;
-    } else {
-        play();
-        // isPlaying = true;
-    };
+    video.paused ? video.play() : video.pause();
 };
 
-// const stopStartHover = () => {
-//     playBtn.classList.toggle('play-btn-hover');
-// }
+const changePlayIcons = () => {
+    playBtn.classList.toggle('pause');
+    playBtnMain.classList.toggle('showOnPause');
+}
+  
+const updateProgress = () => {
+    const currentPercent = (video.currentTime / video.duration) * 100;
+    progressFilled.style.flexGrow = `${currentPercent / 100}`;
+}
 
+const updateVideoTime = (event) => video.currentTime = (event.offsetX / progress.offsetWidth) * video.duration;
 
-video.addEventListener('click', clk => {
-    stopStart();
-});
-playBtn.addEventListener('click', clk => {
-    stopStart();
-});
+const updateVolume = () => volumeFilled.style.flexGrow = `${video.volume}`;
 
-// playBtn.addEventListener('mouseover', clk => {
-//     console.log(!clk);
-//     if (!clk) {
-//         playBtn.classList.remove('play-btn-hover')
-//     } else {
-//         playBtn.classList.add('play-btn-hover')
-//     }
+const updateVideoVolume = (event) => video.volume = event.offsetX / volume.offsetWidth;
 
-// });
+const updateVideoVolumeScroll = (event) => {
+    if(event.deltaY < 0) {
+        video.volume = Math.min((video.volume + 0.1), 1)
+    } else {
+        video.volume = Math.max((video.volume - 0.1), 0)
+    }
+}
+const muting = () => {
+    volumeBtn.classList.toggle('muted');
+    video.muted ? video.muted = false : video.muted = true;
+}
 
+video.addEventListener('click', clk => stopStart())
+playBtn.addEventListener('click', clk => stopStart())
+playBtnMain.addEventListener('click', clk => stopStart())
 
+video.addEventListener('timeupdate', updateProgress)
+progress.addEventListener('click', updateVideoTime)
 
+video.addEventListener('volumechange', updateVolume)
+volume.addEventListener('click', updateVideoVolume)
 
+video.addEventListener('mousewheel', updateVideoVolumeScroll)
+volume.addEventListener('mousewheel', updateVideoVolumeScroll)
 
+volumeBtn.addEventListener('click', muting)
 
+video.addEventListener('play', changePlayIcons)
+video.addEventListener('pause', changePlayIcons)
 
-
-// video.addEventListener('play', play => {
-//     console.log(`PLAYING? ${isPlaying}`);
-//     // console.log(playBtn.style, document.querySelector('.play-btn'));
-//     // playBtn.style.backgroundImage = "url('../assets/svg/play.svg')";
-// })
-// video.addEventListener('pause', paused => {
-//     console.log(`PAUSED? ${isPlaying}`);
-//     // playBtn.style.backgroundImage = "url('../assets/svg/pause.svg')";
-// })
-
-// console.log(` the end isPlaying: ${isPlaying}`);
-
-
-
-
-
-
-// console.log(document.styleSheets[0].cssRules);
-
-// for (let rule of document.styleSheets[0].cssRules) {
-//     rule.cssText.replace('play', 'pause');
-//     console.log(rule.cssText);
-// };
-
-// console.log(document.styleSheets[0].cssRules('.play-btn'));
-// console.log(document.querySelector('.play-btn').style);
+// default volume settings
+video.volume = 0.5
+updateVolume();
