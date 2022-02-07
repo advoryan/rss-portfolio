@@ -31,7 +31,6 @@
     background-image: url('../assets/svg/play-btn.svg'); 
     background-repeat: no-repeat;
     background-position: center;
-    /* background-size: 50%; */
     width: 80px;
     height: 80px;
     z-index: -1;
@@ -102,11 +101,36 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 }
+.progress:hover {
+   cursor: grab;
+}
+.progress:active {
+    cursor: w-resize;
+}
+
 .progress__filled {
     height: 100%;
     background-color:rgba(255, 136, 0, 0.2);
     transition: 0.2s;
 }
+/* .p-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    outline: green 1px solid;
+
+} */
+/* .progress__pointer {
+    height: 24px;
+    width: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    background-color: rgb(105, 90, 74);
+    position: relative;
+    left: 0px;
+} */
+
+
 
 .volume-btn {
     background-color: rgba(0, 0, 0, 0.5);
@@ -125,11 +149,17 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
+    padding-right: 2px;
 }
 .volume__filled {
     height: 100%;
     background-color:rgba(255, 136, 0, 0.2);
     transition: 0.2s;
+}
+.volume__pointer {
+    content: "";
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .muted {

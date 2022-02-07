@@ -3,6 +3,7 @@ const playBtnMain = document.querySelector('.player__main-play-btn');
 const playBtn = document.querySelector('.play-btn');
 const progress = document.querySelector('.progress');
 const progressFilled = document.querySelector('.progress__filled');
+// const progressPointer = document.querySelector('.progress__pointer'); // ползунок
 const volumeBtn = document.querySelector('.volume-btn');
 const volume = document.querySelector('.volume');
 const volumeFilled = document.querySelector('.volume__filled');
@@ -34,12 +35,7 @@ const updateVolume = () => volumeFilled.style.flexGrow = `${video.volume}`;
 const updateVideoVolume = (event) => video.volume = event.offsetX / volume.offsetWidth;
 
 const updateVideoVolumeScroll = (event) => {
-    if(event.deltaY < 0) {
-        video.volume = Math.min((video.volume + 0.1), 1)
-    } else {
-        video.volume = Math.max((video.volume - 0.1), 0)
-    };
-
+    event.deltaY < 0 ? video.volume = Math.min((video.volume + 0.1), 1) : video.volume = Math.max((video.volume - 0.1), 0);
     video.volume === 0 ? volumeBtn.classList.add('muted') : volumeBtn.classList.remove('muted');
 }
 const muting = () => {
@@ -53,9 +49,9 @@ const muting = () => {
     }
 }
 
-video.addEventListener('click', clk => stopStart())
-playBtn.addEventListener('click', clk => stopStart())
-playBtnMain.addEventListener('click', clk => stopStart())
+video.addEventListener('click', stopStart)
+playBtn.addEventListener('click', stopStart)
+playBtnMain.addEventListener('click', stopStart)
 
 video.addEventListener('timeupdate', updateProgress)
 progress.addEventListener('click', updateVideoTime)
@@ -73,3 +69,52 @@ video.addEventListener('pause', changePlayIcons)
 
 video.volume = 0.5
 updateVolume();
+
+
+
+const listener = function(e) {
+    progressPointer.style.left = e.offsetX + "px"
+};
+
+progress.addEventListener('mousedown', e => {
+    document.addEventListener('mousemove', updateVideoTime);
+});
+progress.addEventListener('mouseup', e => {
+    document.removeEventListener('mousemove', updateVideoTime);
+});
+
+
+
+
+
+
+// const updateVideoTime = (event) => video.currentTime = (event.offsetX / progress.offsetWidth) * video.duration;
+
+// const pContainer = document.querySelector('.p-container');
+
+// const listener = function(e) {
+//     // console.log("before " + progressPointer.style.left + "X " + e.pageX);
+//     // console.log(e);
+//     // console.log(e.offsetX);
+//     // e.offsetX == e.offsetWidth ? progressPointer.style.left = e.offsetX + "px" : 1;
+//     progressPointer.style.left = e.offsetX + "px"
+//     // progressPointer.style.top = e.pageY + "px";
+//     // console.log("after " + progressPointer.style.left);
+// };
+
+
+// progressPointer.addEventListener('mousedown', e => {
+//     document.addEventListener('mousemove', listener);
+// });
+// progressPointer.addEventListener('mouseup', e => {
+//     document.removeEventListener('mousemove', listener);
+// });
+
+// progressPointer.style.marginLeft = 15 + 'px';
+
+// let mousedown = false;
+
+// progressPointer.addEventListener('mousedown', () => mousedown = true);
+// progressPointer.addEventListener('mouseup', () => mousedown = false);
+
+// pContainer.addEventListener('mousemove', (e) => mousedown && listener);
