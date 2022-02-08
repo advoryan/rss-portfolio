@@ -118,16 +118,57 @@ volume.addEventListener('mouseup', e => {
     document.removeEventListener('mousemove', updateVolume);
 });
 
+// --- full screen ---
+
+const fullScreenBtn = document.querySelector('.full-screen-btn');
+let fullScr = false;
+
+toggleFullScr = () => fullScr === false ? openFullscreen() : closeFullscreen();
+
+fullScreenBtn.addEventListener('click', toggleFullScr);
+
+  function openFullscreen() {
+    if (video.requestFullscreen) {
+        video.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+        video.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+        video.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        video.msRequestFullscreen();
+    }
+  };
+
+  function closeFullscreen() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) { /* Firefox */
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE/Edge */
+        document.msExitFullscreen();
+    }
+}
+
 // --- presets ------------------------
 
 video.volume = 0.3;
 updateVolume();
 volumeLabel.style.display = 'none';
 progressLabel.textContent = `00:00:00`;
+// document.addEventListener("DOMContentLoaded", () => {
+//     alert("Вы можете воспользоваться колесиком мыши для изменения громкости и пробелом для остановки/запуска видео");
+//   });
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector('.instructions').classList.toggle('show-instructions');
+    setTimeout(() => document.querySelector('.instructions').classList.toggle('show-instructions'), 5000 );
+});
 
 console.log (
-`Добрый день! И спасибо, что уделили мне время!
-
+    `Добрый день! И спасибо, что уделили время!
+    
 В этом задании постарался максимально кастомизировать видеоплеер
 и прочуствовать некоторые другие пути, поэтому не использовал тег input.
 В следующий раз подумаю трижды...
