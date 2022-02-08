@@ -162,6 +162,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
+    padding-left: 20px;
 }
 .volume:hover {
    cursor: grab;
