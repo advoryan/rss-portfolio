@@ -157,12 +157,17 @@ video.volume = 0.3;
 updateVolume();
 volumeLabel.style.display = 'none';
 progressLabel.textContent = `00:00:00`;
+// document.addEventListener("DOMContentLoaded", () => {
+//     alert("Вы можете воспользоваться колесиком мыши для изменения громкости и пробелом для остановки/запуска видео");
+//   });
+
 document.addEventListener("DOMContentLoaded", () => {
-    alert("Вы можете воспользоваться колесиком мыши для изменения громкости и пробелом для остановки/запуска видео");
-  });
+    document.querySelector('.instructions').classList.toggle('show-instructions');
+    setTimeout(() => document.querySelector('.instructions').classList.toggle('show-instructions'), 5000 );
+});
 
 console.log (
-    `Добрый день! И спасибо, что уделили мне время!
+    `Добрый день! И спасибо, что уделили время!
     
 В этом задании постарался максимально кастомизировать видеоплеер
 и прочуствовать некоторые другие пути, поэтому не использовал тег input.
