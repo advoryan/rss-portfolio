@@ -81,7 +81,9 @@
 .control-bar:hover .volume-btn,
 .hover .volume-btn,
 .control-bar:hover .volume,
-.hover .volume {
+.hover .volume,
+.control-bar:hover .full-screen-btn,
+.hover .full-screen-btn {
     display: flex;
 }
 .control-bar:hover .progress
@@ -179,6 +181,17 @@
 
 .muted {
     background-image: url('../assets/svg/mute.svg'); 
+}
+
+.full-screen-btn {
+    background-color: rgba(255, 255, 255, 0.226);
+    background-image: url('../assets/svg/fullScr.svg');
+    fill:rgba(255, 255, 255, 0.85);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 20px 20px;
+    display: none;
+    background-size: 60%;
 }
 
 .footer {
