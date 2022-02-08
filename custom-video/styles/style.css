@@ -252,11 +252,13 @@
     text-align: center;
     align-items: center;
     font-size: 20px;
-    background-color: rgba(255, 255, 255, 0.473);
+    background-color: rgba(255, 255, 255, 0.795);
     max-width: 700px;
     max-height: 200px;
     bottom: 100px;
     display: none;
+    z-index: 1000;
+    padding: 20px;
 }
 .instructions strong {
     color: rgb(66, 38, 5);
