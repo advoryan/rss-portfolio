@@ -45,25 +45,31 @@ const updateVolume = () => {
 
 const updateVideoVolume = (event) => {
     video.volume = event.offsetX / volume.offsetWidth
-    video.volume < 0.1 ? video.volume = 0 : video.volume;
-    video.volume === 0 ? volumeBtn.classList.add('muted') : volumeBtn.classList.remove('muted');
+    video.volume < 0.1 ? 
+        video.volume = 0 : 
+        video.volume;
+    video.volume === 0 ? 
+        volumeBtn.classList.add('muted') : 
+        volumeBtn.classList.remove('muted');
+
 };
 
 const updateVideoVolumeScroll = (event) => {
     event.deltaY < 0 ? 
         video.volume = Math.min( Math.round(video.volume * 100) / 100 + 0.1, 1) : 
         video.volume = Math.max( Math.round(video.volume * 100) / 100 - 0.1, 0);
-    video.volume === 0 ? volumeBtn.classList.add('muted') : volumeBtn.classList.remove('muted');
+    video.volume === 0 ? 
+        volumeBtn.classList.add('muted') : 
+        volumeBtn.classList.remove('muted'); 
 }
 
 const muting = () => {
-    volumeBtn.classList.toggle('muted');
-    if (video.muted === false) {
-        video.muted = true;
+    if (video.volume != 0) {
         video.volume = 0;
+        volumeBtn.classList.add('muted');
     } else {
-        video.muted = false;
         video.volume = 0.3;
+        volumeBtn.classList.remove('muted')
     }
 }
 
@@ -157,13 +163,10 @@ video.volume = 0.3;
 updateVolume();
 volumeLabel.style.display = 'none';
 progressLabel.textContent = `00:00:00`;
-// document.addEventListener("DOMContentLoaded", () => {
-//     alert("Вы можете воспользоваться колесиком мыши для изменения громкости и пробелом для остановки/запуска видео");
-//   });
 
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('.instructions').classList.toggle('show-instructions');
-    setTimeout(() => document.querySelector('.instructions').classList.toggle('show-instructions'), 5000 );
+    setTimeout(() => document.querySelector('.instructions').classList.toggle('show-instructions'), 4000 );
 });
 
 console.log (
