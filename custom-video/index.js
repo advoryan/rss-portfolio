@@ -43,7 +43,11 @@ const updateVolume = () => {
     setTimeout(() => volumeLabel.style.display = 'none', 3000 );
 };
 
-const updateVideoVolume = (event) => video.volume = event.offsetX / volume.offsetWidth;
+const updateVideoVolume = (event) => {
+    video.volume = event.offsetX / volume.offsetWidth
+    video.volume < 0.1 ? video.volume = 0 : video.volume;
+    video.volume === 0 ? volumeBtn.classList.add('muted') : volumeBtn.classList.remove('muted');
+};
 
 const updateVideoVolumeScroll = (event) => {
     event.deltaY < 0 ? 
