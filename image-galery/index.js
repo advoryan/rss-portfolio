@@ -29,9 +29,14 @@ async function getImages (txt, order) {
 addItems = (items) => {
   items.forEach( (url) => {
     let newItem = document.createElement('div');
+    let newLink = document.createElement("a");
     newItem.className = 'images__item';
+    newLink.className = 'images__link';
+    newLink.target = "_blank";
+    newLink.href = url.links.html;
     newItem.style.backgroundImage = `url("${url.urls.regular}")`;
     document.querySelector('.images').append(newItem);
+    newItem.append(newLink);
   })
 }
 
