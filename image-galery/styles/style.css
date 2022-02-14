@@ -87,7 +87,6 @@
     background-size: cover;
     flex: 30%;
     min-height: 300px;
-    /* height: 30%; */
     cursor: pointer;
 }
 .images__item:hover {
@@ -113,7 +112,11 @@
     font-style: italic;
 }
 
-
+.images__link {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
 .footer {
     margin-top: 5px;
     background-color: rgba(97, 81, 67, 0.685);;
