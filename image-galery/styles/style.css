@@ -118,6 +118,8 @@
     margin-top: 5px;
     background-color: rgba(97, 81, 67, 0.685);;
     max-height: 200px;
+    display: flex;
+    justify-content:center;
 }
 .footer__container {
     max-width: 500px;
