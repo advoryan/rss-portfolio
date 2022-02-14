@@ -50,3 +50,4 @@ for (var i = 0; i < orderList.length; i++) {
 // Presets
 search.value = 'belarus';
 getImages ('belarus') 
+search.value = '';
