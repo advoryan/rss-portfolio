@@ -24,7 +24,7 @@ const resultsShow = (crossOrZero) => {
         winner = 'ничья'
     }
     // winner === 'ничья' ? console.log(`Ничья!`) : console.log(`Победили ${winner}`)
-    
+
 
 }
 
@@ -53,7 +53,9 @@ const nextTurn = (event) => {
             crossOrZero = "X" :
             crossOrZero = "O";
         event.target.innerHTML = crossOrZero;
-        turnCounter++
+        turnCounter++;
+        crossOrZero === "X" && event.target.classList.add("orange");
+
     }
     winConditionLooker(crossOrZero) && resultsShow(crossOrZero) //если победа
     !winConditionLooker(crossOrZero) && filledCheck() === 0 && resultsShow(crossOrZero='') //если заполены все - ничья
