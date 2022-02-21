@@ -1,0 +1,58 @@
+@import url('../styles/reset.css');
+
+.wrapper {
+    background-color: rgb(112, 112, 112);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    outline: 10px solid rgb(112, 112, 112);
+}
+.cell {
+    width: 100px;
+    height: 100px;
+    outline: rgba(255, 255, 255, 0.438) 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: aliceblue;
+    font-size: 8vh;
+}
+
+.overlay {
+    /* display: none; */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    left:0;
+    top:0;
+}
+.menu {
+    /* display: none; */
+    width: 400px;
+    height: 600px;
+    border: 1px solid white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+.results {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.results span {
+    flex: 33%;
+}
