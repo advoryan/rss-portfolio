@@ -50,17 +50,16 @@ const showHighscore = () => {
 
     highscore.innerHTML = '';
 
-   hiScore.sort(function(a, b) {
+    hiScore.sort(function(a, b) {
         let keyA = new Date(a.turn),
             keyB = new Date(b.turn);
-        // Compare the 2 turns
         if (keyA < keyB) return -1;
         if (keyA > keyB) return 1;
         return 0;
       });
 
     for (let i = 0; i < hiScore.length; i++) {
-        highscore.innerHTML += `<span>${i + 1}</span><span>${hiScore[i].winnerName}</span><span>on ${hiScore[i].turn} move</span>`
+        highscore.innerHTML += `<span>${i + 1}</span><span>${hiScore[i].winnerName}</span><span>in ${hiScore[i].turn} moves</span>`
     }
 
 }
@@ -88,8 +87,8 @@ const resultsShow = (crossOrZero) => {
     overlay.style.display = 'block';
     scoreMenu.style.display = 'flex';
     winner === 'Draw Game' ? 
-        scoreText.innerHTML = `<span>${winner}</span><span>on ${turnCounter} move</span>` :
-        scoreText.innerHTML = `<span>${winner} win!</span><span>on ${turnCounter} move</span>`;
+        scoreText.innerHTML = `<span>${winner}</span><span>in ${turnCounter} moves</span>` :
+        scoreText.innerHTML = `<span>${winner} win!</span><span>in ${turnCounter} moves</span>`;
        
         storageSaver();
         success();
