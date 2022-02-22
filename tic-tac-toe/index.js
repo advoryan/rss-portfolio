@@ -7,6 +7,7 @@ const highscoreBtn = document.querySelector('.highscore-btn');
 const scoreMenu = document.querySelector('.score');
 const scoreText = document.querySelector('.current-results');
 const highscore = document.querySelector('.results');
+const reset = document.querySelector('.reset');
 const winConditionsArr = [
     [0, 1, 2],
     [3, 4, 5],
@@ -20,14 +21,27 @@ const winConditionsArr = [
 let hiScore = JSON.parse(localStorage.getItem("highScoresStorage")) === null?
     [] :
     JSON.parse(localStorage.getItem("highScoresStorage"));
-    
-    // console.log(hiScore[0].winnerName);
 
 let shifted;
 let turnCounter = 0;
 let crossOrZero;
 let winner;
 let isAllFilled = true;
+let isReset = false;
+
+const pop = () => {
+    var audio = new Audio('./assets/sounds/pop.mp3');
+    audio.play();
+}
+const success = () => {
+    var audio = new Audio('./assets/sounds/success.mp3');
+    audio.play();
+}
+const intro = () => {
+    var audio = new Audio('./assets/sounds/intro.mp3');
+    audio.play();
+}
+intro();
 
 const showHighscore = () => {
     scoreMenu.style.display = 'none';
@@ -36,10 +50,30 @@ const showHighscore = () => {
 
     highscore.innerHTML = '';
 
+   hiScore.sort(function(a, b) {
+        let keyA = new Date(a.turn),
+            keyB = new Date(b.turn);
+        // Compare the 2 turns
+        if (keyA < keyB) return -1;
+        if (keyA > keyB) return 1;
+        return 0;
+      });
+
     for (let i = 0; i < hiScore.length; i++) {
         highscore.innerHTML += `<span>${i + 1}</span><span>${hiScore[i].winnerName}</span><span>on ${hiScore[i].turn} move</span>`
     }
 
+}
+
+const storageSaver = (isReset) => {
+    if (!isReset) {
+        hiScore.push({winnerName: winner, turn: turnCounter});
+        hiScore.length > 10 && hiScore.shift();
+        isReset = false;
+    }
+        console.log(hiScore);
+        console.log(hiScore.length);
+        localStorage.setItem("highScoresStorage", JSON.stringify(hiScore));
 }
 
 const resultsShow = (crossOrZero) => {
@@ -56,12 +90,9 @@ const resultsShow = (crossOrZero) => {
     winner === 'Draw Game' ? 
         scoreText.innerHTML = `<span>${winner}</span><span>on ${turnCounter} move</span>` :
         scoreText.innerHTML = `<span>${winner} win!</span><span>on ${turnCounter} move</span>`;
-
-        hiScore.push({winnerName: winner, turn: turnCounter});
-        hiScore.length > 10 && hiScore.shift();
-        console.log(hiScore);
-        console.log(hiScore.length);
-        localStorage.setItem("highScoresStorage", JSON.stringify(hiScore));
+       
+        storageSaver();
+        success();
 }
 
 const filledCheck = () => {
@@ -99,7 +130,8 @@ const nextTurn = (event) => {
 
 cells.forEach(cell => {
     cell.addEventListener('click', (event) => {
-        event.target.innerHTML === '' && nextTurn(event)
+        event.target.innerHTML === '' && nextTurn(event);
+        pop();
     })
 });
 
@@ -109,4 +141,10 @@ newGame.forEach(btns => {
 
 highscoreBtn.addEventListener('click', showHighscore)
 
+reset.addEventListener('click', () => {
+    isReset = true;
+    hiScore = [];
+    storageSaver(isReset);
+    showHighscore();
+})
 

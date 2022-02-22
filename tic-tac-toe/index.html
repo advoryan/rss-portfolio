@@ -23,28 +23,40 @@
             <div class="cell"></div>
             <div class="cell"></div>
         </div>
-    </div>
+        
+        <footer class="container footer">
+            <div class="footer__container">
+            <div class="footer__year">
+                <span>2022</span>
+            </div>
+            
+            <div class="footer__git">
+                <a href="https://github.com/advoryan" target="_blank" class="rss-link">advoryan</a>
+            </div>
+            
+            <a href="https://rs.school/js-stage0/" class="footer__link">
+                <div class="footer__logo"></div>
+            </a>
+        </div>
+    </footer>
+    
+</div>
+    
     <div class="overlay"></div>
     <div class="menu">
-        <span class="heading">Last 10 games Highscores:</span>
+        <div class="heading">
+            <span>Last 10 games Highscores:</span>
+            <button class="reset">reset</button>
+        </div>
         <div class="names">
             <span>#</span>
             <span>Winner</span>
             <span>On turn</span>
         </div>
         <div class="results">
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
+            <span>...no records so far...</span>
         </div>
         <button class="newGame">Start new game</button>
-        <!-- <button class="sideChange"></button> -->
     </div>
     <div class="score">
         <div class="current-results">
@@ -56,6 +68,9 @@
             <button class="newGame">New Game</button>
         </div>
     </div>
+        
+        
+        
 
     <script src="../tic-tac-toe/index.js"></script>
 </body>
