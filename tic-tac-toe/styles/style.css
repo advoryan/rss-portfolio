@@ -128,11 +128,11 @@ body {
     margin-top: auto;
     height: 60px;
     color: rgb(255, 255, 255);
-    font-size: 40px;
+    font-size: 36px;
     background-color: rgba(156, 224, 30, 0.466);
     border-radius: 12px;
     transition: 0.2s;
-    padding: 5px;
+    padding: 8px;
     margin: auto 5px 0 5px;
 }
 .newGame:hover {
@@ -159,7 +159,7 @@ body {
 .score {
     display: none;
     background-color: rgba(0, 0, 0, 0.8);
-    width: 350px;
+    width: 320px;
     height: 250px;
     justify-content:space-between;
     align-items: center;
