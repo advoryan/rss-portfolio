@@ -88,8 +88,8 @@ const resultsShow = (crossOrZero) => {
     overlay.style.display = 'block';
     scoreMenu.style.display = 'flex';
     winner === 'Draw Game' ? 
-        scoreText.innerHTML = `<span>${winner}</span><span>on ${turnCounter} move</span>` :
-        scoreText.innerHTML = `<span>${winner} win!</span><span>on ${turnCounter} move</span>`;
+        scoreText.innerHTML = `<span>${winner}</span><span>in ${turnCounter} moves</span>` :
+        scoreText.innerHTML = `<span>${winner} win!</span><span>in ${turnCounter} moves</span>`;
        
         storageSaver();
         success();
