@@ -21,7 +21,7 @@ let hiScore = JSON.parse(localStorage.getItem("highScoresStorage")) === null?
     [] :
     JSON.parse(localStorage.getItem("highScoresStorage"));
     
-    console.log(hiScore[0].winnerName);
+    // console.log(hiScore[0].winnerName);
 
 let shifted;
 let turnCounter = 0;
@@ -51,7 +51,7 @@ const resultsShow = (crossOrZero) => {
     } else {
         winner = 'Draw Game'
     }
-
+    overlay.style.display = 'block';
     scoreMenu.style.display = 'flex';
     winner === 'Draw Game' ? 
         scoreText.innerHTML = `<span>${winner}</span><span>on ${turnCounter} move</span>` :
