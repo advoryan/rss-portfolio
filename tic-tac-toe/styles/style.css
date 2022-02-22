@@ -20,18 +20,14 @@ body {
 }
 .appName {
     padding-top: 30px;
-    /* margin: auto; */
     max-height: 60px;
-    /* font-size: 40px; */
     flex: 50%;
 }
-
 .container {
     display: flex;
     flex-wrap: wrap;
     width: 312px;
     margin: auto;
-    
 }
 .cell {
     width: 100px;
@@ -69,7 +65,7 @@ body {
 .menu, 
 .score {
     background-color: rgba(51, 52, 53, 0.5);
-    width: 400px;
+    width: 320px;
     height: 530px;
     border: 1px solid white;
     position: absolute;
@@ -127,8 +123,6 @@ body {
     display: flex;
 }
 
-
-
 .newGame, 
 .highscore-btn {
     margin-top: auto;
@@ -162,7 +156,6 @@ body {
     transform: scale(1.0);
 }
 
-
 .score {
     display: none;
     background-color: rgba(0, 0, 0, 0.8);
@@ -183,7 +176,6 @@ body {
     line-height: 50px;
     
 }
-
 
 .footer {
     width:100%;
