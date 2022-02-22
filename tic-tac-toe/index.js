@@ -6,7 +6,7 @@ const newGame = document.querySelectorAll('.newGame');
 const highscoreBtn = document.querySelector('.highscore-btn');
 const scoreMenu = document.querySelector('.score');
 const scoreText = document.querySelector('.current-results');
-const currentResult = document.querySelector('.results');
+const highscore = document.querySelector('.results');
 const winConditionsArr = [
     [0, 1, 2],
     [3, 4, 5],
@@ -17,16 +17,29 @@ const winConditionsArr = [
     [0, 4 ,8],
     [2, 4, 6]
 ]
+let hiScore = JSON.parse(localStorage.getItem("highScoresStorage")) === null?
+    [] :
+    JSON.parse(localStorage.getItem("highScoresStorage"));
+    
+    console.log(hiScore[0].winnerName);
+
+let shifted;
 let turnCounter = 0;
 let crossOrZero;
 let winner;
 let isAllFilled = true;
-// currentResult.innerHTML = '';
 
 const showHighscore = () => {
     scoreMenu.style.display = 'none';
     overlay.style.display = 'block';
     menu.style.display = 'flex';
+
+    highscore.innerHTML = '';
+
+    for (let i = 0; i < hiScore.length; i++) {
+        highscore.innerHTML += `<span>${i + 1}</span><span>${hiScore[i].winnerName}</span><span>on ${hiScore[i].turn} move</span>`
+    }
+
 }
 
 const resultsShow = (crossOrZero) => {
@@ -42,8 +55,13 @@ const resultsShow = (crossOrZero) => {
     scoreMenu.style.display = 'flex';
     winner === 'Draw Game' ? 
         scoreText.innerHTML = `<span>${winner}</span><span>on ${turnCounter} move</span>` :
-        scoreText.innerHTML = `<span>${winner} win!</span><span>on ${turnCounter} move</span>`
+        scoreText.innerHTML = `<span>${winner} win!</span><span>on ${turnCounter} move</span>`;
 
+        hiScore.push({winnerName: winner, turn: turnCounter});
+        hiScore.length > 10 && hiScore.shift();
+        console.log(hiScore);
+        console.log(hiScore.length);
+        localStorage.setItem("highScoresStorage", JSON.stringify(hiScore));
 }
 
 const filledCheck = () => {
