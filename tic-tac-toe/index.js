@@ -78,9 +78,9 @@ const storageSaver = (isReset) => {
 const resultsShow = (crossOrZero) => {
     scoreText.innerHTML = '';
     if (crossOrZero === 'X') {
-        winner = 'Crosses'
+        winner = '[X] Crosses'
     } else if (crossOrZero === 'O') {
-        winner = 'Noughts'
+        winner = '[O] Noughts'
     } else {
         winner = 'Draw Game'
     }
